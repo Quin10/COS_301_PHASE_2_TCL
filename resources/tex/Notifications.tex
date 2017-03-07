@@ -1,3 +1,51 @@
-\section{Notifications Subsystem}
+\section{Notifications Module}
 
-\includegraphics[width=1\linewidth]{\imgPath/notification-class-diagram}\\[1cm]
+\subsection{Overview}
+The Notification Module is responsible for delivering  messages to system users via said users' preferred method of communication. Messages might include add on system updates that a user indicated they want to receive, or any other system related updates. Notifications will be sent via a medium external to the application, using ether SMS or email services.
+
+\subsection{Classes}
+The Notification Module will be comprised of a manager class i.e. NotificationManager, a request class i.e. NotificationRequest, a class related to the users' profile, i.e. NotificationProfile, and a class that will handle sending of the notification i.e. NotificationSender.
+
+\paragraph{NotificationManager}
+NotificationManager will provide the interface to send notifications to any system user, it will also maintain and store user profiles related to notifications.
+
+\paragraph{NotificationRequest}
+NotificationRequest is a abstract class that will contain the message to transmit, the target user, and information about the serialization thereof.
+
+\paragraph{NotificationProfile}
+NotificationProfile will store system uses' preferred means of communication, i.e. SMS and/or email.
+
+\paragraph{NotificationSender}
+NotificationSender will implement the relevant technical requirements to use the underling service type, e.g. SMS service.
+
+\subsection{Design Patterns}
+Singleton, Command, and Strategy design patterns must be used to implement the Notification Module.
+
+\paragraph{Singleton}
+The Singleton pattern will provide a well known entry point to access and make use of the service. This is well suited, as only one manager class for the Notification Module must be instantiated. 
+
+\paragraph{Command}
+A modified version of the Command pattern must be implemented, where systems requesting to send a notification must implement there own concrete NotificationRequest class. The abstract method to be implemented is the serialization of the request object. This will decouple the systems that intend to send notifications from the Notification Module, and allow flexibility to implement add on specific notifications.
+
+\paragraph{Strategy}
+Two methods to transmit the notification must be implemented i.e. emails and SMS. The appropriate method (i.e. the method dictated by the user's profile) must be used to convey the notification. The Strategy pattern will allow the profile specific method to be used when transmitting the notification, while providing the implementation that is dependent on the underlying transmission system.
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{\imgPath/notification-class-diagram}
+\caption{Notifications Class Diagram}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{\imgPath/notifications-use-case}
+\caption{Notifications Request and Send Use Case}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{\imgPath/notifications-profile-use-case}
+\caption{Notifications Profile Use Case}
+\end{figure}
+\end{figure}

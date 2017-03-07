@@ -10,7 +10,7 @@
 
 ### Repository Guidelines
 
-Use cases should preferably be drawn in [Draw.io](https://draw.io/) for a consistent look. They can be exported as PNG images and then embedded in the document as follows: Put the PNG file in the `images` directory and paste the following code in the SRS, but replace *image_file_name* with the file name of the image in **without** the extension:
+Our diagrams should preferably be drawn in Draw.io  for a consistent look, however if you can achieve the same look using a different platform then you may go ahead. Using Draw.io, the diagrams can be exported as PNG images and then embedded in the document as follows: Put the PNG file in the `images` directory and paste the following code in the SRS, but replace *image_file_name* with the file name of the image in **without** the extension:
 
 ```latex
 \begin{figure}[h!]

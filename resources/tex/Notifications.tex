@@ -3,6 +3,23 @@
 \subsection{Overview}
 The Notification Module is responsible for delivering  messages to system users via said users' preferred method of communication. Messages might include add on system updates that a user indicated they want to receive, or any other system related updates. Notifications will be sent via a medium external to the application, using ether SMS or email services.
 
+\subsection{Use Cases}
+\paragraph{Send and Receive}
+Registered users will be able to receive notifications such as system updates and add on specific notifications. Admin users will be able to broadcast notifications, and add on systems will be able to notify users of their specific updates.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{\imgPath/notifications-use-case}
+\caption{Notifications Request and Send Use Case}
+\end{figure}
+
+\paragraph{Notification Profile}
+Registered users will be able to chose their means of communication and customize their notification profile.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{\imgPath/notifications-profile-use-case}
+\caption{Notifications Profile Use Case}
+\end{figure}
+
 \subsection{Classes}
 The Notification Module will be comprised of a manager class i.e. NotificationManager, a request class i.e. NotificationRequest, a class related to the users' profile, i.e. NotificationProfile, and a class that will handle sending of the notification i.e. NotificationSender.
 
@@ -31,21 +48,18 @@ A modified version of the Command pattern must be implemented, where systems req
 Two methods to transmit the notification must be implemented i.e. emails and SMS. The appropriate method (i.e. the method dictated by the user's profile) must be used to convey the notification. The Strategy pattern will allow the profile specific method to be used when transmitting the notification, while providing the implementation that is dependent on the underlying transmission system.
 
 
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\linewidth]{\imgPath/notification-class-diagram}
 \caption{Notifications Class Diagram}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{\imgPath/notifications-use-case}
-\caption{Notifications Request and Send Use Case}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{\imgPath/notifications-profile-use-case}
-\caption{Notifications Profile Use Case}
-\end{figure}
-\end{figure}
+
+\subsection{Technologies}
+
+\paragraph{Email}
+Authenticated SMTP must be used to send messages to the email server that NavUp will use. This is to prevent the email server from relaying messages that are not properly validated. Internet Message Access Protocol (IMAP) will be used to store emails, as this is most prevalent system and thus support aught to be sufficient. POP3 might be an option as emails need not be stored for extended periods after the email has been delivered. TCP/IP will be used implicitly.
+
+\paragraph{SMS}
+A Direct-to-SMS gateway will be the most appropriate service to use, encoding all messages in plain ASCII text to promote device compatibility. The infrastructure such as GSM is determined by the service provider.

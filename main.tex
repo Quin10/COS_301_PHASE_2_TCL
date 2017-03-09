@@ -79,6 +79,26 @@ The final objective is to create a NavUP mobile application as well as a web-bas
 
 \section{Overall Architectural Design}
 \subsection{Overview}
+\paragraph{}The development of the NavUP system takes a very modular approach, hence requiring effective communication between several modules all developed separetly. This involves the implementation of several design patterns and the linking of them with one another.
+\subsubsection{Expected Performance}
+\begin{itemize}
+	\item The system will make use of campus wifi aswell network coverage.
+    \item Users will be able to register on the system, but also be able to use the system as a guest.
+    \item Admin users will have control of system tasks and user management.
+    \item Admin users should be able to set up an event which users may attend.
+    \item Notifications for events should be pushed through to the users when requested by the admin.
+    \item The admin user/s should have easy access to the systems GIS module.
+    \item Admin should be able to easily add points of interest to the system.
+    \item The points of interest module should be used by the events module when selecting a destination 			for the event, and also by the navigation module for when providing directions.
+\end{itemize}
+
+\subsubsection{Design Constraints}
+\begin{itemize}
+	\item The application should be within certain size contraints as to allow the application to 				install on even entry level smartphones without causing storage problems.
+    \item The application must not be memory intensive causing entry level smartphones to become slow 			when running the application.
+    \item The application requires access to network/wifi coverage aswell as location data for the 				device running it in order to provide accurate shortest and least congested routes.
+    \item Logging into the system and loading relevant user specific data should take place within a 				reasonable amount of time. This requires accessing and retrieving database information in a 			efficient and effective manner.
+\end{itemize}
 \subsection{Deployment Diagram}
 
 \pagebreak

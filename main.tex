@@ -14,7 +14,7 @@
 \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
 \rule{\textwidth}{0.4pt}\\[\baselineskip]
 
-{\LARGE NavUP\\ [0.3\baselineskip] Architectural Requirements, Specications and Design } \\ [0.2\baselineskip]
+{\LARGE NavUP\\ [0.3\baselineskip] Architectural Requirements, Specifications and Design } \\ [0.2\baselineskip]
 \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
 \rule{\textwidth}{1.6pt}\\[\baselineskip] %
 
@@ -34,7 +34,7 @@ Ruan Klinkert - u14022282\par}
 
 \vfill
 
-{\scshape 2017} \\[0.3\baselineskip]
+{\scshape 201} \\[0.3\baselineskip]
 {\large TEAM Tlc}\par
 
 \endgroup}
@@ -49,7 +49,7 @@ Ruan Klinkert - u14022282\par}
 \section{Introduction}
 
 \subsection{Deliverable}
-We are required to the high level functional requirements of the NavUp system given in a separate document to identify the architectural design specifications that satisfy the identified functional requirements from our last assignment, focusing on the subsystems architectural designs.
+We are required to use the high level functional requirements of the NavUp system given in a separate document to identify the architectural design specifications that satisfy the identified functional requirements from our last assignment, focusing on the subsystems architectural designs.
 \subsection{Scope}
 The final objective is to create a NavUP mobile application as well as a web-based interface. The NavUP mobile app should be available on both android and ios platforms while the web-based interface will be used for administration and maintenance. The primary objective of NavUP is to allow students, visitors and staff to successfully navigate around campus in a efficient manner.
 
@@ -76,4 +76,58 @@ The final objective is to create a NavUP mobile application as well as a web-bas
 		\hline
 	\end{tabular}
 \end{table}
+
+\section{Overall Architectural Design}
+\subsection{Overview}
+\subsection{Deployment Diagram}
+
+\pagebreak
+\begin{figure}
+\includegraphics[width=\textwidth]{deployment_diagram2}
+\caption{Deployment diagram}
+\end{figure}
+
+\section{User Management Module}
+
+\subsection{UML Class Diagram}
+\includegraphics[width=\textwidth]{user_management_system_Class_diagram}
+
+
+\subsection{Use Case Diagram}
+
+\includegraphics[width=\textwidth]{user_management_system_Use_Case_diagram}
+
+\subsection{Architectural Design of Module}
+\paragraph{}The user management module will handle the login and registration of various users, namely Admin Users, Registered Users, and Guest Users. Guest users will still be able login into and make use of the NavUP system without registering but no data will saved on the system for them. The system stores all registered users' details including those from other modules.
+
+\paragraph{}The user management system makes use of two major design patterns, Template and Memento. 
+\subsection{Technologies Used}
+\subsection{Non-Trivial Implementation Tasks}
+
+
+\section{Events Module}
+\subsection{UML Class Diagram}
+\includegraphics[width = \textwidth, height = 10cm]{ClassEvent}
+\subsection {Use Case Diagram}
+
+\subsection{Architectural Design of Module}
+\paragraph{}The events module will be able to inform different users about events on campus. The module will make use of the location services of the navigation system, thus when a user passes a particular point of interest which has public events, the user will receive a notification via sms or email about these events. 
+
+\paragraph{} The NavUP system will make use of a variety of design patterns. In the events module there will be an events superclass which abstracts the core fuctionality and members that an event object will provide. This means it will be possible to specify different events based on the type, i.e. a special lecture, exhibition, performance etc. In order to add functionality to these different types of events, the decorator design pattern will be used. A concrete decorator will be define to implemnt core funtionality defined by the abstarct event class, and the decorator class will hold a reference to an event object which to which functionality can be added dynamically.
+
+\paragraph{} A single event object will have 4 different attributes namely a name for the event, a date, a time, and a location which is a Point of Intereste object. Different subcalsses will have addiotional attributes, such as a special lecture having a lecturers attribute, performances having performers information, and exhibitions having a topic description. The decorator pattern will allow us to add additional functionalities to each subclass based on the additional attributes which enhances specificity. 
+
+\paragraph{} Each concrete event class will also be equiped with a Serialization function which will return the string containing information about the event which will be used in the notifaction that is sent to the user, which in the end is the goal of the module.  
+
+\subsection{Technologies Used}
+\paragraph{}
+
+
+\subsection{Non-Trivial Implementation Tasks}
+\paragraph{} The events module will be accessed when the user is using the NavUP system to navigate the UP campus. The system will continuously get the current location of the student and when a student passes a point of interest the system will check for events at the particular location. These events will then be compiled into a notification that the user will receive either as an SMS, email, or both. Once a notification has been sent the system will return to tracking the users location if the user is still using the system for navigation.\\
+\newline
+\includegraphics[width = \textwidth, height = 7cm]{EventsActivity}
+
+
+
 \end{document}

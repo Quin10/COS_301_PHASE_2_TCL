@@ -100,10 +100,10 @@ The final objective is to create a NavUP mobile application as well as a web-bas
 \subsection{Architectural Design of Module}
 \paragraph{}The user management module will handle the login and registration of various users, namely Admin Users, Registered Users, and Guest Users. Guest users will still be able login into and make use of the NavUP system without registering but no data will saved on the system for them. The system stores all registered users' details including those from other modules.
 
-\paragraph{}The user management system makes use of two major design patterns, Template and Memento. 
+\paragraph{}The user management system makes use of two major design patterns, Template and Memento. The inheritance between user and the types of users demonstrates the template design pattern. The registration class acts as the originator to create objects of type user in the system;the user acts as the memento storing a state object for each class; the user manager is the caretaker for the memento. This shows the how the memento pattern is implememtened.The UserState class is used to define the objects that will hold state data that is unique to each user, such as, steps taken, places visited, events attended and other attributes that will be brought foward by extra modules that are added to the system.
 
 \subsection{Technologies Used}
-\paragraph{}A MySQL database will be used to manage basic user activities such as registration, authentication, and user privileges. The database will store information regarding all users and how each user should be able to interact with the system.
+\paragraph{}A MySQL database will be used to manage basic user activities such as registration, authentication, and user privileges. The database will store information regarding all users and how each user should be able to interact with the system. This database should interlink with the ios, android, and web platforms.
 
 \paragraph{}The admin user should be able to perform basic CRUD operations such as adding and removing users, creating events, and updating details regarding points of interest. 
 

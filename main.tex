@@ -102,6 +102,8 @@ The final objective is to create a NavUP mobile application as well as a web-bas
 
 \paragraph{}The user management system makes use of two major design patterns, Template and Memento. The inheritance between user and the types of users demonstrates the template design pattern. The registration class acts as the originator to create objects of type user in the system;the user acts as the memento storing a state object for each class; the user manager is the caretaker for the memento. This shows the how the memento pattern is implememtened.The UserState class is used to define the objects that will hold state data that is unique to each user, such as, steps taken, places visited, events attended and other attributes that will be brought foward by extra modules that are added to the system.
 
+\paragraph{}This module connects to the notifications module, events modules and other add-on modules. Notifiactions are dependant on the user/s to which they are to be sent and hence there is a dependency present between these modules.The events module requires an admin user to instantiate and manage the event. One admin user may manage many events, but an event may only be managed by one admin user. 
+
 \subsection{Technologies Used}
 \paragraph{}A MySQL database will be used to manage basic user activities such as registration, authentication, and user privileges. The database will store information regarding all users and how each user should be able to interact with the system. This database should interlink with the ios, android, and web platforms.
 

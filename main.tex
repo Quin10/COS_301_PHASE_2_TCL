@@ -99,6 +99,8 @@ The final objective is to create a NavUP mobile application as well as a web-bas
     \item The application requires access to network/wifi coverage aswell as location data for the 				device running it in order to provide accurate shortest and least congested routes.
     \item Logging into the system and loading relevant user specific data should take place within a 				reasonable amount of time. This requires accessing and retrieving database information in a 			efficient and effective manner.
 \end{itemize}
+
+\pagebreak
 \subsection{Deployment Diagram}
 
 \pagebreak
@@ -132,6 +134,45 @@ The final objective is to create a NavUP mobile application as well as a web-bas
 \paragraph{}Server scripting such as PHP will be required to facilitate interaction between the front end web interface and the database.
 
 \subsection{Non-Trivial Implementation Tasks}
+
+\section{Notifications Module}
+\subsection{UML Class Diagram}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{notification-class-diagram}
+\caption{Class Diagram for Notifications Module}
+\end{figure}
+\subsection{Use Case Diagram}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{notifications-use-case}
+\caption{Notifications Request and Send Use Case}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{notifications-profile-use-case}
+\caption{Notification Profile Use Case}
+\end{figure}
+
+\subsection{Architectural Design of Module}
+
+\subsection{Technologies Used}
+\paragraph{}Email Authenticated SMTP must be used to send messages to the email server that
+NavUp will use. This is to prevent the email server from relaying messages that are
+not properly validated. Internet Message Access Protocol (IMAP) will be used to store
+emails, as this is most prevalent system and thus support aught to be sufficient. POP3
+might be an option as emails need not be stored for extended periods after the email
+has been delivered. TCP/IP will be used implicitly.
+\paragraph{}SMS A Direct-to-SMS gateway will be the most appropriate service to use, encoding
+all messages in plain ASCII text to promote device compatibility. The infrastructure
+such as GSM is determined by the service provider.
+
+\subsection{Non-Trivial Implementation Tasks}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{notification-activity-send}
+\caption{Activity Diagram for Notifications Module, Request Notification}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{notification-module-client-interaction}
+\caption{Notification Module - Client Interaction}
+\end{figure}
 
 %%%%%%%
 %Ruan Klinkert - 14022282

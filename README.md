@@ -1,16 +1,21 @@
-# COS301 TCL Phase2
+# COS 301 Mini-Project: Round 2
 
-If you don't know what this is, you probably should not be here.
+### Tcl Team
+- Boikanyo Modiko - u15227678
+- Linda Potgieter - u14070091
+- Marthinus Richter - u15160671
+- Nkosenhle Ncube - u13247914
+- Quinton Swanepoel - u15245510
+- Ruan Klinkert - u14022282
 
-## Housekeeping
--Please keep the root of master clean.
+### Repository Guidelines
 
---Only the deliverable "main.tex" and *.pdf in root, and...
+Our diagrams should preferably be drawn in Draw.io  for a consistent look, however if you can achieve the same look using a different platform then you may go ahead. Using Draw.io, the diagrams can be exported as PNG images and then embedded in the document as follows: Put the PNG file in the `images` directory and paste the following code in the SRS, but replace *image_file_name* with the file name of the image in **without** the extension:
 
---Only .gitignore, and README.md in root, and...
-
---Only subdirectory (resources) and (raw).
-
--Resources used by *.tex must be saved in subdirectory (resources).
-
--Raw data used for development should preferably not be pushed to master, but I you feel you must, push to (raw)
+```latex
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{image_file_name}
+\caption{Use Case Diagram for...}
+\end{figure}
+```
+*Ensure that javascript is enabled when using [Draw.io](https://draw.io/)* 

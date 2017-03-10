@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\graphicspath{ {images/} }
+\graphicspath{ {resources/images/} }
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -165,8 +165,13 @@ The final objective is to create a NavUP mobile application as well as a web-bas
 
 \subsection{Non-Trivial Implementation Tasks}
 \paragraph{} The events module will be accessed when the user is using the NavUP system to navigate the UP campus. The system will continuously get the current location of the student and when a student passes a point of interest the system will check for events at the particular location. These events will then be compiled into a notification that the user will receive either as an SMS, email, or both. Once a notification has been sent the system will return to tracking the users location if the user is still using the system for navigation.\\
-\newline
+
+\begin{figure}[H]
+\centering
 \includegraphics[width = \textwidth, height = 7cm]{EventsActivity}
+\caption{Sequence diagram of the events module}
+\end{figure}
+
 
 
 

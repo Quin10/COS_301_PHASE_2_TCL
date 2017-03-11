@@ -99,6 +99,15 @@ The final objective is to create a NavUP mobile application as well as a web-bas
     \item The application requires access to network/wifi coverage aswell as location data for the 				device running it in order to provide accurate shortest and least congested routes.
     \item Logging into the system and loading relevant user specific data should take place within a 				reasonable amount of time. This requires accessing and retrieving database information in a 			efficient and effective manner.
 \end{itemize}
+\subsubsection{External Interface Requirements}
+\begin{itemize}
+	\item User Interface - The android/ios version of the system should incorporate a user interface that is easy to navigate on touch screen devices of various sizes, from small entry smartphones to large tablets. Text should be clearly visible and buttons should not be tightly coupled together. The system notifactions should appear in the devices notifications centre/bar even when the application is not open. The web-based version should be easy to navigate and resemble the app as closely as possible.When logged into the system as an admin, the interface should allow for events to easiley be created and allow for effecient user management.
+    \item Hardware Interface - The system will be designed in a manner whereby it can be ported to run on both all ios devices and all android devices. Also a web-based version should be able to open on all popular browsers.TCP/IP communication will be used to transfer data from the servers to devices running the NavUP application.
+    \item Software Interface - The system will connect to a MySQL database in order to store user data, events, and other module specific related data. The system should be capable of running on the both Android and ios devices, aswell as have a web-based version. Google maps packages may also be imported to assist in navigation.
+    \item Communication Interface - The system will require users to connect to a mobile network or wifi hotspot in order to provide accurate navigation routes. The system should also be able push email notifications through to a selected user or group of users. The system requires a reasonable constant data connection in order to provide live updates of routes and events.
+\end{itemize}
+
+\subsubsection{Software System Attributes}
 
 \pagebreak
 \subsection{Deployment Diagram}
